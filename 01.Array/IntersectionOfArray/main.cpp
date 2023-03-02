@@ -1,3 +1,4 @@
+//array intersection is nothing but a finding the common elements between two or more arrays .
 //1.Brute force approach
 #include <bits/stdc++.h> 
 vector<int> findArrayIntersection(vector<int> &arr1, int n, vector<int> &arr2, int m)
@@ -16,7 +17,7 @@ vector<int> findArrayIntersection(vector<int> &arr1, int n, vector<int> &arr2, i
     }
     return ans;
 };
-
+/*-----------------------------------------------------------------------------------------------*/
 //2. Slightly optimized approach
 #include <bits/stdc++.h>
 
@@ -39,7 +40,7 @@ vector<int> findArrayIntersection(vector<int> &arr1, int n, vector<int> &arr2, i
     }
     return ans;
 };
-
+/*---------------------------------------------------------------------------------------*/
 //3. Using two pointer approach when both the arrays sorted in non-decreasing order
 //Time complexity- O(n+m)
 //Space complexiy - O(min(n,m))
