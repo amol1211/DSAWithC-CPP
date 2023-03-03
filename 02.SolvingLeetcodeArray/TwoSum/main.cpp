@@ -2,6 +2,8 @@
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.*/
 //1.Brute force approach
+#include <bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -17,7 +19,33 @@ public:
     }
 };
 /*--------------------------------------------------------------------------------------------------------------*/
-//2. Using Hashmap
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<int> indices(n);
+        for(int i = 0; i < n; i++) {
+            indices[i] = i; // storing indices of all elements
+        }
+        sort(indices.begin(), indices.end(), [&](int i, int j) {
+            return nums[i] < nums[j]; // sort indices based on element values
+        });
+        int left = 0, right = n - 1;
+        while(left < right) {
+            int sum = nums[indices[left]] + nums[indices[right]];
+            if(sum == target) {
+                return {indices[left], indices[right]}; // found the pair
+            } else if(sum < target) {
+                left++; // move left pointer to increase sum
+            } else {
+                right--; // move right pointer to decrease sum
+            }
+        }
+        return {}; // no pair found
+    }
+};
+/*--------------------------------------------------------------------------------------------------------------*/
+//3. Using Hashmap
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
