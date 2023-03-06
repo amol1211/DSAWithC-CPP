@@ -104,3 +104,23 @@ int main() {
     cout << "Index of 36 is: " << oddIndex << '\n';
     return 0;
 }
+
+//Find Peak
+int findPeak(int arr[], int n) {
+
+    int start = 0; 
+    int end = n-1;
+    int mid = start + (end - start)/2;
+
+    while(start < end) {
+        //cout<<" start " << start <<" end " << end << '\n';
+        if(arr[mid] < arr[mid+1]){
+            start = mid+1; 
+        }
+        else{
+            end = mid;
+        }
+        mid = start + (end-start)/2;
+    }
+    return start;
+}

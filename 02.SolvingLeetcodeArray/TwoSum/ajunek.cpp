@@ -13,3 +13,29 @@ class Solution {
         return {};
     }
 };
+/*---------------------------------------------------------------------------*/
+class solution {
+    public: 
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<int> indices(n);
+        for(int i = 0; i < n; i++) {
+            indices[i] = i;
+        }
+        sort(indices.begin(), indices.end(), [&](int i, int j) {
+            return nums[i] < nums[j];
+        });        
+        int left = 0, right = n-1;
+        while(left < right) {
+            int sum = nums[indices[left]], nums[indices[right]];
+            if(sum == target) {
+                return {indices[left], indices[right]};
+            } else if(sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return {};
+    }
+};
