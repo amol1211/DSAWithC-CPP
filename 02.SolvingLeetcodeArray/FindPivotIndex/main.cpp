@@ -1,3 +1,4 @@
+// Approach 1.        
        /* sum = 28;
         arr[] =  [ 1 , 7 , 3 , 6 , 5 , 6 ]
         
@@ -45,3 +46,22 @@ public:
     return -1;
 }
     };
+
+// Approach 2. using accumulate function from STL.
+
+//Solution 02:
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) 
+    {
+        for(int i=0;i<nums.size();i++)
+        {
+            int l=accumulate(nums.begin(),nums.begin()+i,0);
+            int r=accumulate(nums.begin()+i+1,nums.end(),0);
+            
+            if(l==r)
+            return i;
+        }
+        return -1;
+    }
+};
