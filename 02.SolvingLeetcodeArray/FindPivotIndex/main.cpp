@@ -46,8 +46,8 @@ public:
     return -1;
 }
     };
-
-// Approach 2. using accumulate function from STL.
+/*-----------------------------------------------------------*/
+// Approach 2. Using accumulate function from STL.
 
 //Solution 02:
 class Solution {
