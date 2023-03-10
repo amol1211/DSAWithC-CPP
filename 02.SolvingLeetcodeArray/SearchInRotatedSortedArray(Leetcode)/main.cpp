@@ -72,27 +72,27 @@ public:
 
 /*----------------------------------------------------------------------------------------*/
 //bit more concise and easier to follow code.
-
+//left = start, right = end 
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int left = 0, right = nums.size() - 1; // initialize left and right pointers
-        while (left <= right) { // continue loop while left is less than or equal to right
-            int mid = left + (right - left) / 2; // find the middle index
+        int start = 0, end = nums.size() - 1; // initialize left and right pointers
+        while (start <= end) { // continue loop while left is less than or equal to right
+            int mid = start + (end - start) / 2; // find the middle index
             if (nums[mid] == target) { // if target is found at the middle index, return it
                 return mid;
             }
-            if (nums[mid] >= nums[left]) { // if left subarray is sorted in ascending order
-                if (target >= nums[left] && target < nums[mid]) { // if target is within the left subarray
-                    right = mid - 1; // update right pointer to search in the left subarray
+            if (nums[mid] >= nums[start]) { // if left subarray is sorted in ascending order
+                if (target >= nums[start] && target < nums[mid]) { // if target is within the left subarray
+                    end = mid - 1; // update right pointer to search in the left subarray
                 } else {
-                    left = mid + 1; // update left pointer to search in the right subarray
+                    start = mid + 1; // update left pointer to search in the right subarray
                 }
             } else { // if right subarray is sorted in ascending order
-                if (target <= nums[right] && target > nums[mid]) { // if target is within the right subarray
-                    left = mid + 1; // update left pointer to search in the right subarray
+                if (target <= nums[end] && target > nums[mid]) { // if target is within the right subarray
+                    start = mid + 1; // update left pointer to search in the right subarray
                 } else {
-                    right = mid - 1; // update right pointer to search in the left subarray
+                    end = mid - 1; // update right pointer to search in the left subarray
                 }
             }
         }
