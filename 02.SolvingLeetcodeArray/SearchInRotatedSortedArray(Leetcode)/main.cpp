@@ -76,23 +76,23 @@ public:
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int start = 0, end = nums.size() - 1; // initialize left and right pointers
-        while (start <= end) { // continue loop while left is less than or equal to right
+        int start = 0, end = nums.size() - 1; // initialize start and end pointers
+        while (start <= end) { // continue loop while start is less than or equal to end
             int mid = start + (end - start) / 2; // find the middle index
             if (nums[mid] == target) { // if target is found at the middle index, return it
                 return mid;
             }
-            if (nums[mid] >= nums[start]) { // if left subarray is sorted in ascending order
-                if (target >= nums[start] && target < nums[mid]) { // if target is within the left subarray
-                    end = mid - 1; // update right pointer to search in the left subarray
+            if (nums[mid] >= nums[start]) { // if start subarray is sorted in ascending order
+                if (target >= nums[start] && target < nums[mid]) { // if target is within the start subarray
+                    end = mid - 1; // update end pointer to search in the start subarray
                 } else {
-                    start = mid + 1; // update left pointer to search in the right subarray
+                    start = mid + 1; // update start pointer to search in the end subarray
                 }
-            } else { // if right subarray is sorted in ascending order
-                if (target <= nums[end] && target > nums[mid]) { // if target is within the right subarray
-                    start = mid + 1; // update left pointer to search in the right subarray
+            } else { // if end subarray is sorted in ascending order
+                if (target <= nums[end] && target > nums[mid]) { // if target is within the end subarray
+                    start = mid + 1; // update start pointer to search in the end subarray
                 } else {
-                    end = mid - 1; // update right pointer to search in the left subarray
+                    end = mid - 1; // update end pointer to search in the start subarray
                 }
             }
         }
