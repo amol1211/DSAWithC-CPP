@@ -34,56 +34,66 @@ Constraints:
 // Two pointer approach
 #include <bits/stdc++.h>
 using namespace std;
+// Define a class Solution
 class Solution {
-public: 
-vector<vector<int>> threeSum(vector<int> &num) {
-    
-    vector<vector<int>> ans;
+public:
+    // Define a function that takes a reference to a vector of integers and returns a vector of vector of integers
+    vector<vector<int>> threeSum(vector<int>& nums) {
 
-    sort(num.begin(), num.end());
+        // Create an empty vector of vector of integers to store the triplets that sum to zero
+        vector<vector<int>> ans;
 
-    for (int i = 0; i < num.size(); i++) {
-        
-        int target = -num[i];
-        int left = i + 1;
-        int right = num.size() - 1;
+        // Sort the input vector in non-decreasing order
+        sort(nums.begin(), nums.end());
 
-        while (left < right) {
+        // Loop over each element in the input vector
+        for (int i = 0; i < nums.size(); i++) {
 
-            int sum = num[left] + num[right];
-            
-            // Finding answer which start from number num[i]
-            if (sum < target)
-                left++;
+            // Set the target value to the negation of the current element
+            int target = -nums[i];
 
-            else if (sum > target)
-                right--;
+            // Initialize two pointers to the next and last element in the vector, respectively
+            int left = i + 1;
+            int right = nums.size() - 1;
 
-            else {
-                vector<int> triplet = {num[i], num[left], num[right]};
-                ans.push_back(triplet);
-                
-                // Processing duplicates of Number 2
-                // Rolling the front pointer to the next different number forwards
-                while (left < right && num[right] == triplet[1]) left++;
+            // Use the two pointers to find two elements that sum to the target value
+            while (left < right) {
 
-                // Processing duplicates of Number 3
-                // Rolling the back pointer to the next different number backwards
-                while (left < right && num[right] == triplet[2]) right--;
+                // Compute the sum of the current two elements
+                int sum = nums[left] + nums[right];
+
+                // If the sum is less than the target value, increment the left pointer to increase the sum
+                if (sum < target)
+                    left++;
+
+                // If the sum is greater than the target value, decrement the right pointer to decrease the sum
+                else if (sum > target)
+                    right--;
+
+                // If the sum is equal to the target value, add the triplet to the output vector and increment/
+                //decrement the pointers to skip over duplicate elements
+                else {
+                    vector<int> triplet = {nums[i], nums[left], nums[right]};
+                    ans.push_back(triplet);
+
+                    while (left < right && nums[right] == triplet[2])
+                        right--;
+
+                    while (left < right && nums[left] == triplet[1])
+                        left++;
+                }
             }
-            
+
+            // Increment the current index to skip over duplicate elements in the input vector
+            while (i + 1 < nums.size() && nums[i + 1] == nums[i])
+                i++;
         }
 
-        // Processing duplicates of Number 1
-        while (i + 1 < num.size() && num[i + 1] == num[i]) 
-            i++;
-
+        // Return the output vector of triplets that sum to zero
+        return ans;
     }
-    
-    return ans;
-    
-}
 };
+
 
 // Same approach but 
 /*I had made it more faster by adding this piece of code to pruning your algorithm.
