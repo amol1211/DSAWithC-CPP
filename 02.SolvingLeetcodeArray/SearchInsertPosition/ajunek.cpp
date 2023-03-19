@@ -20,3 +20,19 @@ int searchInsert(vector<int>& nums, int target) {
 
     return left;
 }
+/*---------------------------------------------------------------------------------------------*/
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int first=0, last=nums.size(), mid;
+        while (first<last) {
+            mid=first+((last-first)/2); 
+            	
+			if (nums[mid]<target) 
+				first=mid+1;
+			else 
+				last=mid;
+        }
+        return first;
+    }
+};
