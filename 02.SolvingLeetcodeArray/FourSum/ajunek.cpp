@@ -4,78 +4,114 @@
 using namespace std;
 
 class Solution {
-public:
+    public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        vector<vector<int>> res;
-        
+        vector<vector<int>> ans;
+
         if(nums.empty())
-            return res;
-        
+        return ans;
+
         int n = nums.size();
-        
-        // Approach requires sorting and 2-pointer approach
-        
-        // Step1 -> sorting
-        sort(nums.begin(),nums.end());
-        
-        
-        // Step2 -> 2-pointer 
-        for(int i=0; i<n; i++)
-        {
+
+        sort(nums.begin(), nums.end());
+
+        for(int i= 0; i < n; i++) {
             long long int target3 = target - nums[i];
-            
-            for(int j=i+1; j<n; j++)
-            {
+
+            for(int j = i + 1; j < n; j++) {
                 long long int target2 = target3 - nums[j];
-                
-                int front = j+1;
-                int back = n-1;
-                
-                while(front<back)
-                {
-                    // remaining elements to be found for quad sum
-                    int two_sum = nums[front] + nums[back];
-                    
+
+                int start = j + 1;
+                int end = n - 1;
+
+                while(start < end) {
+
+                    int two_sum = nums[start] + nums[end];
+
                     if(two_sum < target2)
-                        front++;
+                    start++;
                     else if(two_sum > target2)
-                        back--;
-                    
-                    else
-                    {
-                        // if two_sum == target2
+                    end--;
+                    else {
                         vector<int> quad(4,0);
-                        // quad.push_back(nums[i]);
-                        // quad.push_back(nums[j]);
-                        // quad.push_back(nums[front]);
-                        // quad.push_back(nums[back]);
                         quad[0] = nums[i];
                         quad[1] = nums[j];
-                        quad[2] = nums[front];
-                        quad[3] = nums[back];
-                        
-                        
-                        res.push_back(quad);
-                        
-                        // Processing the duplicates of number 3
-                        while(front < back && nums[front] == quad[2]) 
-                            front++;
-                        
-                        // Processing the duplicates of number 4
-                        while(front < back && nums[back] == quad[3]) 
-                            back--;
+                        quad[2] = nums[start];
+                        quad[3] = nums[end];
+
+                        ans.push_back(quad);
+
+                        while(start < end && nums[start] == quad[2])
+                        start++;
+
+                        while(start < end && nums[end] == quad[3])
+                        end--;
                     }
-                    
                 }
-                // Processing the duplicates of number 2
-                    while(j + 1 < n && nums[j + 1] == nums[j]) 
-                        j++;
+                while(j + 1 < n && nums[j + 1] == nums[j])
+                j++;
             }
-            // Processing the duplicates of number 2
-                    while(i + 1 < n && nums[i + 1] == nums[i]) 
-                        i++;
+            while (i + 1 < n && nums[i + 1] == nums[i])
+            i++;
         }
-        
-        return res;
+        return ans;
+    }
+};
+
+/*--------------------------------------------------------------------------------------*/
+class Solution {
+    public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        vector<vector<int>> ans;
+
+        if(nums.empty())
+        return ans;
+
+        int n = nums.size();
+
+        sort(nums.begin(), nums.end());
+
+        for(int i= 0; i < n; i++){
+            
+            long long int target3 = target - nums[i];
+
+            for(int j = i + 1; j < n; j++) {
+                long long int target2 = target3 - nums[j];
+                int start = j + 1;
+                int end = n - 1;
+
+                while(start < end) {
+                    
+                    int two_sum = nums[start] + nums[end];
+
+                    if(two_sum < target2)
+                    start++;
+                    else if(two_sum > target2)
+                    end--;
+
+                    else{
+                        vector<int> quad(4,0);
+                        quad[0] = nums[i];
+                        quad[1] = nums[j];
+                        quad[2] = nums[start];
+                        quad[3] = nums[end];
+
+                        ans.push_back(quad);
+
+                        while(start < end && nums[start] == quad[2])
+                        start++;
+
+                        while(start < end && nums[end] == quad[3])
+                        end--;
+                    }
+                }
+                while (j + 1 < n && nums[j + 1] == nums[j])
+                j++;
+            }
+            while(i + 1 < n && nums[i + 1] == nums[i])
+            i++;
+        }
+        return ans;
+
     }
 };
