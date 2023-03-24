@@ -27,6 +27,7 @@ n == nums4.length
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <hashmap>
 using namespace std;
 
 class Solution {
