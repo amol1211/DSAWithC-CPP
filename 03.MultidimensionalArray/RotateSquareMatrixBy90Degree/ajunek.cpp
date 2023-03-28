@@ -13,11 +13,13 @@ void rotateArray(vector<vector<int>>& vec) {
     }
 
     for(int i = 0; i < n; i++) {
-        reverse(vec[i].begin(),vec[i].end());
+        reverse(vec[i].begin(), vec[i].end());
     }
 
     return;
 }
+
+
 
 int main() {
 
@@ -35,7 +37,7 @@ int main() {
     rotateArray(vec);
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
-            cout << vec[i][j] <<" ";
+            cout << vec[i][j] << " ";
         }
         cout << '\n';
     }
