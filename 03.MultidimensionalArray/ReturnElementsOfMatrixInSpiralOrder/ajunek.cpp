@@ -127,3 +127,56 @@ int main() {
 
     return 0;
 }
+
+/*------------------------------------------------------------------------------------------------*/
+
+int* spiralOrder(int** matrix, int matrixSize, int* matrixColSize, int* returnSize){
+    int* result = (int*) malloc(matrixSize * (*matrixColSize) * sizeof(int));
+    *returnSize = 0;
+    if(matrixSize == 0 || *matrixColSize == 0) {
+        return result;
+    }
+    int left = 0;
+    int right = *matrixColSize - 1;
+    int top = 0;
+    int bottom = matrixSize - 1;
+
+    int direction = 0;
+
+    while(left <= right && top <= bottom) {
+        // left -> right
+        if(direction == 0) {
+            for(int col = left; col <= right; col++) {
+                result[(*returnSize)++] = matrix[top][col];
+            }
+            top++;
+        }
+
+        // top -> bottom
+        else if(direction == 1) {
+            for(int row = top; row <= bottom; row++) {
+                result[(*returnSize)++] = matrix[row][right];
+            }
+            right--;
+        }
+
+        //right -> left
+        else if(direction == 2) {
+            for(int col = right; col >= left; col--) {
+                result[(*returnSize)++] = matrix[bottom][col];
+            }
+            bottom--;
+        }
+
+        // bottom -> top
+        else {
+            for(int row = bottom; row >= top; row--) {
+                result[(*returnSize)++] = matrix[row][left];
+            }
+            left++;
+        }
+        direction = (direction + 1)%4; //0,1,2,3
+
+    }
+    return result;
+}
