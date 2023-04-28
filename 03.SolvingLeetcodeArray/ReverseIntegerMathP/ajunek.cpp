@@ -16,3 +16,21 @@ class Solution {
             return r;
         }
 };
+
+/*------------------------------------------------------------------*/
+
+class solution {
+    public:
+    int reverse(int x) {
+        long int revNum = 0;
+        while ( x != 0) {
+            long int ld = x % 10;
+            revNum = (revNum * 10) + ld;
+            x = x / 10;
+        }
+        if (revNum < INT_MIN || revNum > INT_MAX) {
+            return 0;
+        }
+        return revNum;
+    }
+};
