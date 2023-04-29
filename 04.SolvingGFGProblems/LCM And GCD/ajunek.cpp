@@ -6,7 +6,7 @@
 using namespace std;
 /*
 class Solution {
-    public:
+public:
     vector<long long> lcmAndGcd(long long A, long long B) {
         long long a = A, b = B;
         while (a > 0 && b > 0) {
@@ -17,16 +17,16 @@ class Solution {
             }
         }
         vector<long long> ans;
-        long long HCF, LCM;
+        long long GCD, LCM;
 
         if (a == 0) {
-            HCF = b;
+            GCD = b;
         } else {
-            HCF = a;
+            GCD = a;
         }
-        LCM = (A * B) /  HCF;
+        LCM = (A * B) / GCD;
         ans.push_back(LCM);
-        ans.push_back(HCF);
+        ans.push_back(GCD);
         return ans;
     }
 };
@@ -40,7 +40,7 @@ int main() {
     vector<long long> ans = s.lcmAndGcd(A, B);
 
     cout << "LCM: " << ans[0] << endl;
-    cout << "GCD: " << ans[1] << '\n';
+    cout << "GCD: " << ans[1] << endl;
 
     return 0;
 }
