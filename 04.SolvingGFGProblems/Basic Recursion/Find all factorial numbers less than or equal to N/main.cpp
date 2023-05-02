@@ -5,14 +5,14 @@ class Solution
 {
 public:
 
-    vector<long long> factorialNumbers(long long n)
+    vector<long long> factorialNumbers(long long N)
     {
         // Write Your Code here
        vector< long long > ans = {1};
-       for( int i = 1; i<= n ; i++ ){
+       for( int i = 1; i<= N ; i++ ){
            
            long long t = i * ans[i-1] ; 
-           if( t > n)
+           if( t > N)
              break;
            
            ans.push_back( t );
