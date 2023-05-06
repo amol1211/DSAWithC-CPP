@@ -35,3 +35,16 @@ public:
         }
     }
 };
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        k = k % n; // calculate the actual number of rotations needed
+        reverse(nums.begin(), nums.end()); // reverse the entire array
+        reverse(nums.begin(), nums.begin() + k); // reverse the first k elements separately
+        reverse(nums.begin() + k, nums.end()); // reverse the remaining elements separately
+    }
+};
