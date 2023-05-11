@@ -1,37 +1,23 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Solution {
-public:
-    bool isPalindrome(string s) {
-        int start=0, end=s.length()-1;
-	    while(start<end) {
-		if (!isalnum(s[start])) start++;
-		else if (!isalnum(s[end])) end--;
-		else {
-			if (tolower(s[start++])!=tolower(s[end--]))
-                return false;
-		}
-	}
-	return true;
-    }
-};
+	public:
+	bool isPalindrome(string s) {
+		string st = "";
+		for (int i = 0; i < s.size(); i++) 
+			if ((s[i] >= 'a' && s[i] <= 'z' ) || (s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9'))
+			st += s[i];
+		
+		transform(st.begin(), st.end(), st.begin(), :: tolower);
 
-/*--------------------------------------------------------------------*/
-
-class Solution {
-public:
-    bool isPalindrome(string s) {
-        int start=0, end=s.length()-1;
-	    while(start<end) {
-		if (!isalnum(s[start])) start++;
-		else if (!isalnum(s[end])) end--;
-		else {
-			if (tolower(s[start++])!=tolower(s[end--]))
-                return false;
+		int i = 0; j = st.size() - 1;
+		while (i <= j) {
+			if (st[i] != st[j])
+			return false;
+			i++;
+			j--;
 		}
+		return true;
 	}
-	return true;
-    }
 };
