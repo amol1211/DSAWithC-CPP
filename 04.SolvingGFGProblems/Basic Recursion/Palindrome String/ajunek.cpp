@@ -33,3 +33,21 @@ int isPalindrome(string S) {
 
 /*--------------------------------------------------*/
 
+int isPlaindrome(string S) {
+    stach<char> st;
+    for (char c: S) {
+        st.push(c);
+    }
+
+    string revS = "";
+    while (!st.empty()) {
+        revS += st.top();
+        st.pop();
+    }
+
+    if (S == revS) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
