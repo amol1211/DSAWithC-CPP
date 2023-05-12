@@ -18,7 +18,7 @@ public:
 
 /*-------------------------------------------------------------*/
 
-//2.Iterative approach using an array
+//2.Iterative approach using an array (dp)
 
 class Solution {
 public:
