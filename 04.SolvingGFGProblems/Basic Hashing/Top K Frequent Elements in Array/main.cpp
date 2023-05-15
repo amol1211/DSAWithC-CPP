@@ -7,30 +7,37 @@ using namespace std;
 class Solution {
 public:
     vector<int> topK(vector<int>& nums, int k) {
-        // Create a frequency map using an unordered map.
+        // Create an unordered map to store the frequency of each element in nums.
         unordered_map<int, int> freq;
         for (int num : nums) {
             freq[num]++;
         }
         
-        // Create a max heap of pairs, where the first element of each pair is
-        // the frequency of the element and the second element is the element itself.
-        priority_queue<pair<int, int>> pq;
+        // Create a max heap to store the pairs (frequency, element).
+        // The max heap will order the pairs by their frequency in descending order.
+        priority_queue<pair<int, int>> max_heap;
         for (auto it : freq) {
-            pq.push({it.second, it.first});
+            max_heap.push(make_pair(it.second, it.first));
         }
         
-        // Extract the top k elements from the max heap and add them to the result vector.
-        vector<int> res;
-        while (k-- > 0 && !pq.empty()) {
-            res.push_back(pq.top().second);
-            pq.pop();
+        // Extract the k most frequent elements from the max heap and add them to the result vector.
+        vector<int> result;
+        while (k > 0 && !max_heap.empty()) {
+            // Extract the top element from the max heap.
+            int element = max_heap.top().second;
+            // Add the element to the result vector.
+            result.push_back(element);
+            // Decrease k to count the number of elements extracted so far.
+            k--;
+            // Remove the top element from the max heap.
+            max_heap.pop();
         }
         
         // Return the result vector.
-        return res;
+        return result;
     }
 };
+
 
 //Here's a brief summary of the steps performed by this implementation:
 

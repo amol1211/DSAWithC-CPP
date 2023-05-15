@@ -6,7 +6,7 @@ class Solution {
     vector<int> topK(vector<int>& nums, int k) {
 
         unordered_map<int, int> freq;
-        for (int num : nums) {
+        for (auto num : nums) {
             freq[num]++;
         }
 
@@ -16,7 +16,7 @@ class Solution {
         }
 
         vector<int> res;
-        while (k-- > 0 && !pq.empty()) {
+        while(k-- > 0 && !pq.empty()) {
             res.push_back(pq.top().second);
             pq.pop();
         }
