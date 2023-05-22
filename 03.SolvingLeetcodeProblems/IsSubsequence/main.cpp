@@ -1,4 +1,6 @@
 //392. Is Subsequence
+#include <iostream>
+using namespace std;
 
 class Solution {
 public:
