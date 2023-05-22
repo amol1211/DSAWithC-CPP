@@ -16,7 +16,7 @@ class Solution {
 
         for (int i = 1; i < n; i++) {
             mini = min(mini, prices[i]);
-            result = max(result, prices[i] - mini);
+            maxProfit = max(result, prices[i] - mini);
         }
         
         return maxProfit;
