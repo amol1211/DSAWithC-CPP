@@ -7,7 +7,7 @@ class Solution {
     bool isHappy(int n) {
         unordered_set<int> visited;
 
-        while (n != 1 && visited.find() == visited.end()) {
+        while (n != 1 && visited.find(n) == visited.end()) {
             visited.insert(n);
             int sum = 0;
             while (n > 0) {
@@ -20,4 +20,4 @@ class Solution {
 
         return n == 1;
     }
-}
+};
