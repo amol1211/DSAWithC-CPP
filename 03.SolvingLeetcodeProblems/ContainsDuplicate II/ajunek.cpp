@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+class Solution {
+    public:
+        bool containsNearbyDuplicate(vector<int>& nums, int k) {
+
+            unordered_map<int, size_t> map;
+
+            for (size_t i = 0; i < nums.size(); ++i) {
+                if (mp.count(nums[i])) {
+                    if (i - map[i] <= k)
+                        return true;
+                }
+                map[nums[i]] = i;
+            }
+
+            return false;
+        }
+};
