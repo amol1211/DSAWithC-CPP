@@ -42,6 +42,8 @@ int main() {
     return 0;
 } 
 
+*/
+
 //Time complexity = Average and Worst case: O(n^2)
 //Best Case: O(n)
 
