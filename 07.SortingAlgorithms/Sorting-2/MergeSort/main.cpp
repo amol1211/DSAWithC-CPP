@@ -33,6 +33,11 @@ void merge(vector<int> &arr, int low, int mid, int high) {
     }
 
     // Copy elements from the temporary vector back to the original array
+    //i - low is used as an offset to access the elements in the temporary vector temp. 
+    //Since temp contains the merged elements, the indices in temp start from 0.
+    //By subtracting low from i, we get the relative position of the current index i in 
+    //the original subarray [low..mid] with respect to the starting index of the subarray. 
+    //This allows us to access the correct element from the temp vector.
     for (int i = low; i <= high; i++) {
         arr[i] = temp[i - low];
     }
