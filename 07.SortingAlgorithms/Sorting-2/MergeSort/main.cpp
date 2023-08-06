@@ -1,27 +1,28 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-void mS(vector<int> &arr, int low, int high) {
+void merge(vector<int> &arr, int low, int mid, int high) {
     vector<int> temp;
-    // [low..mid]
-    // [mid+1...high]
     int left = low;
     int right = mid + 1;
-    while(left <= mid && right <= high) {
-        if(arr[left] <= arr[right]) {
+
+    while (left <= mid && right <= high) {
+        if (arr[left] <= arr[right]) {
             temp.push_back(arr[left]);
             left++;
-        }
-        else {
+        } else {
             temp.push_back(arr[right]);
             right++;
         }
     }
-    while(left <= mid) {
+
+    while (left <= mid) {
         temp.push_back(arr[left]);
         left++;
     }
-    while(right <= high) {
+
+    while (right <= high) {
         temp.push_back(arr[right]);
         right++;
     }
@@ -29,16 +30,37 @@ void mS(vector<int> &arr, int low, int high) {
     for (int i = low; i <= high; i++) {
         arr[i] = temp[i - low];
     }
+}
 
 void mS(vector<int> &arr, int low, int high) {
-
-    if(low == high) return;
+    if (low == high) return;
     int mid = (low + high) / 2;
     mS(arr, low, mid);
-    mS(arr, mid+1, high);
+    mS(arr, mid + 1, high);
     merge(arr, low, mid, high);
 }
 
 void mergeSort(vector<int> &arr, int n) {
     mS(arr, 0, n - 1);
+}
+
+int main() {
+    vector<int> arr = {12, 11, 13, 5, 6, 7};
+    int n = arr.size();
+
+    cout << "Original Array: ";
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    mergeSort(arr, n);
+
+    cout << "Sorted Array: ";
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
