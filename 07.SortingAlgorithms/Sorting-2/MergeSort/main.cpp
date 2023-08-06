@@ -83,3 +83,6 @@ int main() {
 
     return 0;
 }
+
+//Time complexity of the Merge Sort algorithm is O(n log n)
+//Space complexity of Merge Sort is O(n)
