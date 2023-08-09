@@ -1,3 +1,30 @@
+//1st approach: By iterating over nums array
+
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> result;
+        int start = -1;
+        int end = -1;
+
+        if (nums.empty())
+            return {-1, -1};
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == target) {
+                if (start == -1)
+                    start = i;
+                end = i;
+            }
+        }
+
+        result.push_back(start);
+        result.push_back(end);
+        return result;
+    }
+};
+
+/*--------------------------------------------------------------*/
 class Solution {
     public:
        vector<int> searchRange(vector<int>& nums, int target) {
