@@ -33,7 +33,7 @@ void Print() {
     // Print the list elements
     printf("List is: ");
     while (temp != NULL) {
-        printf(" %d", temp->data);
+        printf("%d ", temp->data);
         temp = temp->next;
     }
     printf("\n");
@@ -47,7 +47,7 @@ int main() {
     // Prompt the user for the number of elements to insert
     printf("How many numbers?\n");
     int n, i, x;
-    scanf("%d", &n);
+    scanf("%d ", &n);
 
     // Loop to insert elements into the linked list
     for (i = 0; i < n; i++) {
