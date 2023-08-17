@@ -1,5 +1,4 @@
 #include <iostream> // Include the input-output stream library
-
 using namespace std; // Use the standard namespace
 
 struct Node { // Define a structure for a node in the linked list
