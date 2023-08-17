@@ -20,7 +20,7 @@ void Print() {
 void Insert(int data, int n) {
     Node* temp1 = new Node(); // Create a new node using dynamic memory allocation
     temp1->data = data; // Set the data of the new node
-    temp1->next = NULL; // Initialize the next pointer to NULL
+    temp1->next = NULL; // Initialize the next pointer to NULL 
 
     if(n == 1) { // If the new node should be inserted at the beginning
         temp1->next = head; // Set the next pointer of the new node to the current head
