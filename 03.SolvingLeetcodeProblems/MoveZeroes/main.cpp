@@ -73,6 +73,11 @@ void moveZeroes(vector<int>& nums) {
 
 //5. Using stable_partition with Reverse Iterators(Using STL function) 
 
+void moveZeroes(vector<int>& nums) {
+    // Rearranges elements in 'nums' in reverse order so that logical NOT of zero elements
+    // (i.e., non-zero elements) come before zero elements, maintaining relative order.
+    stable_partition(rbegin(nums), rend(nums), logical_not<int>());
+}
 
 
 
