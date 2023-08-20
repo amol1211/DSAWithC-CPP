@@ -53,3 +53,11 @@ public:
         }
     }
 };
+
+/*-------------------------------------------------------*/
+
+void moveZeroes(vector<int>& nums) {
+    // Rearranges elements in 'nums' so that non-zero elements come before zero elements,
+    // while maintaining the relative order of non-zero elements.
+    stable_partition(begin(nums), end(nums), [](int i) { return i; });
+}
