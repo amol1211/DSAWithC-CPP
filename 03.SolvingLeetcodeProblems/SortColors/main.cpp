@@ -51,3 +51,28 @@ void sortColorsBruteForce(vector<int>& nums) {
 }
 
 /*--------------------------------------------------------------------------------*/
+
+// 3. Slightly Optimized Approach (Dutch National Flag Algorithm):
+
+void sortColorsDutchFlag(vector<int>& nums) {
+    int low = 0, high = nums.size() - 1, mid = 0;
+    
+    // Move elements smaller than 1 to the beginning and larger than 1 to the end
+    while (mid <= high) {
+        if (nums[mid] == 0) {
+            // Swap current element with the element at 'low' index
+            swap(nums[low], nums[mid]);
+            low++;
+            mid++;
+        } else if (nums[mid] == 1) {
+            // Move to the next element
+            mid++;
+        } else {
+            // Swap current element with the element at 'high' index
+            swap(nums[mid], nums[high]);
+            high--;
+        }
+    }
+}
+
+/*----------------------------------------------------------------------------*/
