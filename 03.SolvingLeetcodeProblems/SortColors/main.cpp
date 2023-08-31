@@ -76,3 +76,28 @@ void sortColorsDutchFlag(vector<int>& nums) {
 }
 
 /*----------------------------------------------------------------------------*/
+
+//4. Most Optimized Approach (Single Pass):
+
+void sortColorsSinglePass(vector<int>& nums) {
+    int n = nums.size();
+    int low = 0, high = n - 1, curr = 0;
+    
+    // Traverse the array and move elements to their correct positions
+    while (curr <= high) {
+        if (nums[curr] == 0) {
+            // Swap current element with the element at 'low' index
+            swap(nums[curr], nums[low]);
+            low++;
+            curr++;
+        } else if (nums[curr] == 2) {
+            // Swap current element with the element at 'high' index
+            swap(nums[curr], nums[high]);
+            high--;
+        } else {
+            // Move to the next element
+            curr++;
+        }
+    }
+}
+
