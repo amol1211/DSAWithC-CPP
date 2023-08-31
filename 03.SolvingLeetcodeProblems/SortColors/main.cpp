@@ -1,5 +1,7 @@
 //75. Sort Colors
 
+//1. Brute Force Approach:
+
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
@@ -29,3 +31,23 @@ public:
         }
     }
 };
+
+/*--------------------------------------------------------------------------------*/
+
+// 2. Brute Force Approach:
+
+void sortColorsBruteForce(vector<int>& nums) {
+    int n = nums.size();
+    
+    // Perform bubble sort
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (nums[j] > nums[j + 1]) {
+                // Swap elements if they are out of order
+                swap(nums[j], nums[j + 1]);
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------------------------*/
