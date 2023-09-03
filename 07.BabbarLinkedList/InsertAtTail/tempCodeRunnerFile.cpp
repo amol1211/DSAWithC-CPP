@@ -2,25 +2,26 @@
 using namespace std;
 
 class Node {
-public:
+    public :
     int data;
     Node* next;
 
     Node(int data) {
-        this->data = data;
-        this->next = nullptr;
+        this -> data = data;
+        this -> next = nullptr;
     }
 };
 
-void InsertAtTail(Node*& tail, int data) {
+
+void InsertAtTail(Node* &tail, int data) {
     Node* temp = new Node(data);
     tail->next = temp;
     tail = temp;
 }
 
-void Print(Node*& head) {
-    Node* temp = head;
-    while (temp != nullptr) {
+void Print(Node* &tail) {
+    Node* temp = tail;
+    while (tail != nullptr) {
         cout << temp->data << " ";
         temp = temp->next;
     }
@@ -30,16 +31,12 @@ void Print(Node*& head) {
 int main() {
     Node* node1 = new Node(10);
 
-    Node* head = node1;
     Node* tail = node1;
-
-    Print(head);
+    Print(tail);
 
     InsertAtTail(tail, 12);
-    Print(head);
+    Print(tail);
 
     InsertAtTail(tail, 15);
-    Print(head);
-
-    return 0;
+    Print(tail);
 }
