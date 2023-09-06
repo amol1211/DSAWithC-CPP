@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-class Node {
+class Node{
     public:
     int data;
     Node* next;
 
     Node(int data) {
-        this -> data = data;
-        this -> next = nullptr;
+        this->data = data;
+        this->next = nullptr;
     }
 };
 
@@ -20,7 +20,7 @@ void insertAtHead(Node* &head, int data) {
 
 void print(Node* &head) {
     Node* temp = head;
-    while(temp != nullptr) {
+    while (temp != nullptr) {
         cout << temp->data << " ";
         temp = temp->next;
     }
