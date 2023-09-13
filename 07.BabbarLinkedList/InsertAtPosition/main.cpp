@@ -28,6 +28,11 @@ void print(Node* head) {
 }
 
 void insertAtPosition(Node* &head, int position, int data) {
+    if (position == 1) {
+        insertAtHead(head, data);
+        return;
+    }
+    
     Node* temp = head;
     int count = 1;
 
@@ -53,7 +58,7 @@ int main() {
     insertAtHead(head, 15);
     print(head);
 
-    insertAtPosition(head, 3, 22);
+    insertAtPosition(head, 1, 22);
     print(head);
 
     return 0;
