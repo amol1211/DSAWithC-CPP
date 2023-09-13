@@ -75,5 +75,8 @@ int main() {
     insertAtPosition(head,tail, 3, 22);
     print(head);
 
+    cout << "Head " << head->data << '\n';
+    cout << "Tail " << tail->data << '\n';
+
     return 0;
 }
