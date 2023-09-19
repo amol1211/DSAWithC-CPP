@@ -32,16 +32,3 @@ public:
 //slow moves by one step whereas fast moves by 2 steps.
 //By the time fast reaches the end of the LL, slow will point to the middle.
 
-class Solution {
-public:
-    ListNode* middleNode(ListNode* head) {
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while(fast!=NULL && fast->next!=NULL)
-        {
-            slow= slow->next;
-            fast= fast->next->next;
-        }
-        return slow;
-    }
-};
