@@ -195,6 +195,5 @@ int main() {
     cout << "head " << head->data << '\n';
     cout << "tail " << tail->data << '\n';
 
-
     return 0;
 }
