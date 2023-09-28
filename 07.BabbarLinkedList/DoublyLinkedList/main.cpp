@@ -13,6 +13,14 @@ class Node {
         this->prev = nullptr;
         this->next = nullptr;
     }
+    ~Node() {
+        int val = this->next;
+        if (next != nullptr) {
+            delete next;
+            next = nullptr;
+        }
+        cout << "Memory free for node with data " << val << '\n';
+    }
 };
 
 //Traversing a linked list
@@ -101,6 +109,18 @@ void insertAtPosition(Node* &head, Node* &tail, int position, int data) {
     temp->next->prev = nodeToInsert;
     temp->next = nodeToInsert;
     nodeToInsert->prev = temp;
+}
+
+void deleteNode(int position, Node* &head) {
+
+    //Deleting first or start node
+    if (position == 1) {
+        Node* temp = head;
+        temp->next->prev = nullptr;
+        head = temp->next;
+        temp->next = nullptr;
+        delete temp;
+    }
 }
 
 int main() {
