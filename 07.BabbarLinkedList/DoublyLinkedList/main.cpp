@@ -14,7 +14,7 @@ class Node {
         this->next = nullptr;
     }
     ~Node() {
-        int val = this->next;
+        int val = this->data;
         if (next != nullptr) {
             delete next;
             next = nullptr;
@@ -111,7 +111,7 @@ void insertAtPosition(Node* &head, Node* &tail, int position, int data) {
     nodeToInsert->prev = temp;
 }
 
-void deleteNode(int position, Node* &head) {
+void deleteNode(int position, Node* &head, Node* &tail) {
 
     //Deleting first or start node
     if (position == 1) {
@@ -120,6 +120,29 @@ void deleteNode(int position, Node* &head) {
         head = temp->next;
         temp->next = nullptr;
         delete temp;
+        if (head == nullptr) {
+            tail = nullptr; // Update tail when the last node is deleted
+        }
+    }
+    else {
+        //Deleting any middle node or last node
+        Node* curr = head;
+        Node* prev = nullptr;
+
+        int count = 1;
+        while (count < position) {
+            prev = curr;
+            curr = curr->next;
+            count++;
+        }
+
+        curr->prev = nullptr;
+        prev->next = curr->next;
+        curr->next = nullptr;
+        delete curr;
+        if (curr->next == nullptr) {
+            tail = prev; // Update tail when the last node is deleted
+        }
     }
 }
 
@@ -166,6 +189,12 @@ int main() {
     print(head);
     cout << "head " << head->data << '\n';
     cout << "tail " << tail->data << '\n';
+
+    deleteNode(7, head, tail);
+    print(head);
+    cout << "head " << head->data << '\n';
+    cout << "tail " << tail->data << '\n';
+
 
     return 0;
 }

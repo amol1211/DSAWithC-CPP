@@ -13,6 +13,14 @@ class Node {
         this->prev = nullptr;
         this->next = nullptr;
     }
+    ~Node() {
+        int val = this->data;
+        if (next != nullptr) {
+            delete next;
+            next = nullptr;
+        }
+        cout << "Memory free for node with data " << val << '\n';
+    }
 };
 
 //Traversing a linked list
@@ -102,6 +110,41 @@ void insertAtPosition(Node* &head, Node* &tail, int position, int data) {
     nodeToInsert->prev = temp;
 }
 
+void deleteNode(int position, Node* &head, Node* &tail) {
+
+    //Deleting first or start node
+    if (position == 1) {
+        Node* temp = head;
+        temp->next->prev = nullptr;
+        head = temp->next;
+        temp->next = nullptr;
+        delete temp;
+        if (head == nullptr) {
+            tail = nullptr; //Updata tail when the last node is deleted
+        }
+    }
+    else {
+        //Deleting any middle node or last node
+        Node* curr = head;
+        Node* prev = nullptr;
+
+        int count = 1;
+        while (count < position) {
+            prev = curr;
+            curr = curr->next;
+            count++;
+        }
+
+        curr->prev = nullptr;
+        prev->next = curr->next;
+        curr->next = nullptr;
+        delete curr;
+        if (curr->next == nullptr) {
+            tail = prev; // Update tail when the last node is deleted
+        }
+    }
+}
+
 int main() {
     
     Node* head = nullptr;
@@ -141,6 +184,11 @@ int main() {
     cout << "tail " << tail->data << '\n';
 
     insertAtPosition(head, tail, 7, 102);
+    print(head);
+    cout << "head " << head->data << '\n';
+    cout << "tail " << tail->data << '\n';
+
+    deleteNode(7, head, tail);
     print(head);
     cout << "head " << head->data << '\n';
     cout << "tail " << tail->data << '\n';
