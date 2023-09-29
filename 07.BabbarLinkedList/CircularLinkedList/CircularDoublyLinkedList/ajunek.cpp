@@ -2,16 +2,16 @@
 using namespace std;
 
 class Node {
-public:
+    public:
     int data;
     Node* next;
     Node* prev;
 
-    // Constructor
+    //Constructor
     Node(int data) {
         this->data = data;
         this->next = nullptr;
-        this->prev = nullptr;
+        this->next = nullptr;
     }
 
     ~Node() {
@@ -21,7 +21,7 @@ public:
 };
 
 void insertNode(Node* &tail, int element, int data) {
-    // Empty list
+    //Empty list
     if (tail == nullptr) {
         Node* newNode = new Node(data);
         newNode->next = newNode;
@@ -30,14 +30,14 @@ void insertNode(Node* &tail, int element, int data) {
     }
     else {
         // Non-empty list
-        // Assuming that the element is present in the list
+        // Assuming that the element is present is present in the list
 
         Node* curr = tail->next;
 
         do {
             if (curr->data == element) {
                 Node* temp = new Node(data);
-                temp->next = curr->next;
+                temp->next  = curr->next;
                 temp->prev = curr;
                 curr->next->prev = temp;
                 curr->next = temp;
@@ -63,8 +63,9 @@ void print(Node* tail) {
     cout << '\n';
 }
 
+
 void deleteNode(Node* &tail, int val) {
-    // Empty list;
+    //Empty list
     if (tail == nullptr) {
         cout << "List is already empty, please check again" << '\n';
         return;
@@ -117,5 +118,6 @@ int main() {
     deleteNode(tail, 5);
     print(tail);
 
+    
     return 0;
 }
