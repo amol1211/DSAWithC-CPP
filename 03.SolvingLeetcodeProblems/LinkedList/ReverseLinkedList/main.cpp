@@ -61,7 +61,26 @@ public:
 
 //Approach 3: Optimized recursive approach
 
+class Solution {
+public:
 
+    ListNode* reverse(ListNode* head) {
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }
+        ListNode* remainingHead = reverse(head->next);
+
+        head->next->next = head;
+        head->next = nullptr;
+
+        return remainingHead;
+    }
+
+    ListNode* reverseList(ListNode* head) {
+        return reverse(head);
+        
+    }
+};
 
 //Time complexity: O(n)
 //Space complexity: O(n)
