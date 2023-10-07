@@ -69,7 +69,7 @@ public:
 
 //Approach 3:
 
- class Solution {
+class Solution {
 public:
     // Helper function to merge two sorted linked lists
     ListNode* solve(ListNode* list1, ListNode* list2) {
