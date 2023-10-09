@@ -3,7 +3,27 @@
 #include <iostream>
 using namespace std;
 
-//Approach 1 :
+//Approach 1 : 
+
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        unordered_set<ListNode*> seen;
+        while (head) {
+            if (seen.find(head) != end(seen)) return head;
+            seen.insert(head);
+            head = head->next;
+        }
+        return NULL;
+    }
+};
+
+//Time Complexity: O(n)
+//Space Complexity: O(n)
+
+/*------------------------------------------------------------------------*/
+
+//Approach 2 :
 
 class Solution {
 public:
@@ -43,4 +63,3 @@ public:
 //Time Complexity: O(n)
 //Space Complexity: O(1)
 
-/*-----------------------------------------------------------*/
