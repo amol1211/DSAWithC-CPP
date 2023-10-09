@@ -40,7 +40,7 @@ public:
     fast = fast->next->next;
     // Search for loop using slow and
     // fast pointers
-    while (fast && fast->next) {
+    while (fast != nullptr && fast->next != nullptr) {
         if (slow == fast)
             break;
         slow = slow->next;
