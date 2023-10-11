@@ -83,9 +83,9 @@ class Solution {
             current = current->next;
 
             if (current != nullptr) {
-            copiedCurrent->next = current->next;
-            copiedCurrent = copiedCurrent->next;
-        }
+                copiedCurrent->next = current->next;
+                copiedCurrent = copiedCurrent->next;
+            }
         }
 
         return copiedHead;      
