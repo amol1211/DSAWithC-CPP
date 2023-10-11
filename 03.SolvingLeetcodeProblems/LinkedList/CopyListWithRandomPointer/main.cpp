@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-//Approach 1 :
+//Approach 1 : Using set
 class Solution {
 
 void insertAtTail(Node* &head, Node* &tail, int val) {
@@ -61,3 +61,61 @@ public:
 
 //Time complexity: O(n)
 //Space complexity: O(n)
+
+/*--------------------------------------------------------------*/
+
+//Approach 1 : Creating deep copy of original list
+
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        if (!head) return nullptr;
+
+        // Step 1: Duplicate nodes and insert them immediately after the original nodes
+        Node* current = head;
+        while (current) {
+            // Create a new node with the same value as the original node
+            Node* copy = new Node(current->val);
+            
+            // Insert the copy node after the original node
+            copy->next = current->next;
+            current->next = copy;
+            
+            // Move to the next original node
+            current = copy->next;
+        }
+
+        // Step 2: Set random pointers for the copied nodes
+        current = head;
+        while (current) {
+            if (current->random) {
+                // Set the random pointer of the copy node to the copy of the random node
+                current->next->random = current->random->next;
+            }
+            
+            // Move to the next pair of nodes (original and copy)
+            current = current->next->next;
+        }
+
+        // Step 3: Separate the original and copied lists
+        current = head;
+        Node* copiedHead = current->next;
+        Node* copiedCurrent = copiedHead;
+
+        while (current) {
+            // Restore the original list by fixing next pointers
+            current->next = copiedCurrent->next;
+            current = current->next;
+
+            if (current) {
+                // Update copied list pointers
+                copiedCurrent->next = current->next;
+                copiedCurrent = copiedCurrent->next;
+            }
+        }
+
+        // Return the head of the copied list
+        return copiedHead;
+    }
+};
+
