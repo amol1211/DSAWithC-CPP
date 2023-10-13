@@ -75,7 +75,7 @@ Node* merge(Node* root1, Node* root2) {
     Node* dummy = new Node(0);  // Create a dummy node to simplify the merging.
     Node* curr = dummy;  // Create a pointer to keep track of the merged list.
 
-    while (root1 && root2) {
+    while (root1 != nullptr && root2 != nullptr) {
         if (root1->data <= root2->data) {
             curr->bottom = root1;  // Link the current node to the smaller of the two lists.
             root1 = root1->bottom;  // Move to the next node in the same list.
@@ -87,9 +87,9 @@ Node* merge(Node* root1, Node* root2) {
     }
 
     // Attach any remaining nodes from root1 or root2.
-    if (root1) {
+    if (root1 == nullptr) {
         curr->bottom = root1;
-    } else if (root2) {
+    } else if (root2 == nullptr) {
         curr->bottom = root2;
     }
 
