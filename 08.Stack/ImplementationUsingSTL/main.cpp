@@ -24,6 +24,9 @@ int main() {
         cout << "Stack is not empty " << '\n';
     }
 
+    cout << "Size of stack is " << s.size() << '\n';
+
     return 0;
+    
 }
 
