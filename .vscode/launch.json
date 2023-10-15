@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/08.Stack/Implementation",
-      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/08.Stack/Implementation/build/Debug/outDebug",
+      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/08.Stack/ImplementationUsingClass",
+      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/08.Stack/ImplementationUsingClass/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
