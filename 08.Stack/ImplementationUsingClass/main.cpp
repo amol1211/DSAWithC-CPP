@@ -2,18 +2,19 @@
 #include <stack>
 using namespace std;
 
-class Stack {
-    //Properties
-    public:
-        int *arr;
-        int top;
-        int size;
 
-    //Behaviour (Constructor)
+class Stack {
+    // Properties
+public:
+    int *arr; // Pointer to an array to store stack elements.
+    int top;  // Index of the top element.
+    int size; // Maximum size of the stack.
+
+    // Constructor
     Stack(int size) {
         this->size = size;
-        arr = new int(size);
-        top = -1;
+        arr = new int(size); // Allocating memory for the stack.
+        top = -1; // Initializing top to -1 (stack is initially empty).
     }
 
     void push(int element) {
