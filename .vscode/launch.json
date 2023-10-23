@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/08.Stack/ReverseStack",
-      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/08.Stack/ReverseStack/build/Debug/outDebug",
+      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Stack/DeleteMiddleElementOfAStack",
+      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Stack/DeleteMiddleElementOfAStack/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
