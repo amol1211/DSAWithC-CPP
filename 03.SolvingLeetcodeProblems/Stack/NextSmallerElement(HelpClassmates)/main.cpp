@@ -29,6 +29,8 @@ public:
 
 /*---------------------------------------------------------------------------------*/
 
+//Approach 2 : optimized stack approach
+
 class Solution{
     
     public:
