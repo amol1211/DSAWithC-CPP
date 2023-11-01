@@ -93,3 +93,6 @@ int main() {
 
     return 0;
 }
+
+//Time Complexity: O(n)
+//Space Complexity: O(n)

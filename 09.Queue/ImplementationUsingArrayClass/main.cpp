@@ -74,3 +74,7 @@ int main() {
 
     return 0;
 }
+
+
+//Time complexity: O(n)
+//Space complexity: it is using space complexity is O(100001) = O(1), as it is a constant amount of space.
