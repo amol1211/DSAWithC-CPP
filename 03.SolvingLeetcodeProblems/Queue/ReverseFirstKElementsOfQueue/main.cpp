@@ -37,3 +37,8 @@ queue<int> modifyQueue(queue<int> q, int k) {
     return q;
     
 }
+
+//Time complexity : O(n)
+//Space complexity : O(k)
+
+
