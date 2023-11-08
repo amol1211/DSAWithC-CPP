@@ -5,6 +5,33 @@
 #include <stack>
 using namespace std;
 
+
+// 1. Brute force approach (TLE)
+
+class Solution {
+public:
+    vector<long long> nextLargerElement(vector<long long> arr, int n) {
+        vector<long long> result(n, -1);  // Initialize the result vector with -1.
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] > arr[i]) {
+                    result[i] = arr[j];  // Set the result for the current element.
+                    break;  // Break the inner loop once a greater element is found.
+                }
+            }
+        }
+
+        return result;
+    }
+};
+
+//Time complexity : O(n^2)
+//Space complexity : O(n)
+
+/*---------------------------------------------------------------------------------------*/
+
+// 2. stack approach
 class Solution
 {
 public:
