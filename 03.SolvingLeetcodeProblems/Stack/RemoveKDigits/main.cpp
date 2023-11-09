@@ -60,3 +60,41 @@ public:
 
 //Time complexity : O(n)
 //Space complexity : O(n)
+
+/*-------------------------------------------------------------------------------*/
+
+// 2. Brute force approach(TLE)
+
+class Solution {
+public:
+    string removeKdigits(string num, int k) {
+
+        int n = num.length();
+
+    // Base case: if k is greater than or equal to the length of the number, return "0"
+    if (k >= n)
+        return "0";
+
+    string smallest = num;
+
+    // Generate all combinations of removing k digits
+    for (int i = 0; i < k; ++i) {
+        size_t j = 0;
+        while (j < smallest.length() - 1 && smallest[j] <= smallest[j + 1]) {
+            ++j;
+        }
+
+        // Remove the digit at index j
+        smallest.erase(smallest.begin() + j);
+    }
+
+    // Remove leading zeroes
+    size_t nonZeroIndex = smallest.find_first_not_of('0');
+    smallest = (nonZeroIndex != string::npos) ? smallest.substr(nonZeroIndex) : "0";
+
+    return smallest;
+    }
+};
+
+//Time complexity : O(k * n^2)
+//Space complexity : O(n)
