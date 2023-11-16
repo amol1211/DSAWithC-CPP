@@ -118,3 +118,6 @@ public:
 // Space Complexity:
 // - The space complexity is O(capacity), where 'capacity' is the capacity of the LFUCache.
 // - The space is used to store key-value pairs in maps and lists, and the maximum space required is 'capacity'.
+
+// Time Complexity: O(1)
+//Space complexity: O(capacity)
