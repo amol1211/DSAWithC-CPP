@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/07.BabbarLinkedList/DoublyLinkedList",
-      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/07.BabbarLinkedList/DoublyLinkedList/build/Debug/outDebug",
+      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/LinkedList/LFUCache",
+      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/LinkedList/LFUCache/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
