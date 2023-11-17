@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// 1. Recursive appraoch
+
 class Solution {
 public:
     // Function to find the Kth grammar symbol in the Nth row of the grammar sequence
