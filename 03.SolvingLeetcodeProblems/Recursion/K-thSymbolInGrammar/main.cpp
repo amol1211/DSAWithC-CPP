@@ -26,3 +26,39 @@ public:
 
 //Time complexity: O(2^N)
 //Space complexity: O(N)
+
+/*-------------------------------------------------------*/
+
+//Brute force approach(TLE)
+
+#include <cmath>
+
+class Solution {
+public:
+    int kthGrammar(int N, int K) {
+        // Initialize the sequence with the first row containing a single 0
+        std::string sequence = "0";
+
+        // Generate the sequence up to the Nth row
+        for (int i = 2; i <= N; ++i) {
+            std::string nextRow = "";
+            
+            // Iterate through the previous row to generate the next row
+            for (char c : sequence) {
+                if (c == '0') {
+                    nextRow += "01";  // Rule for '0'
+                } else {
+                    nextRow += "10";  // Rule for '1'
+                }
+            }
+            
+            sequence = nextRow;  // Update the sequence for the next row
+        }
+
+        // Return the Kth character (1-indexed) in the final row
+        return sequence[K - 1] - '0';
+    }
+};
+
+//Time complexity: O(2^N)
+//Space complexity: O(2^N)
