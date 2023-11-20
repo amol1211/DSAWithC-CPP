@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-//Two-pointer approach
+// 1. Two-pointer approach
 
 class Solution {
 public:
@@ -29,7 +29,7 @@ public:
 
 /*-----------------------------------------------------------------------------------------*/
 
-//Reverse string approach
+// 2. Reverse string approach
 
 class Solution {
 public:
@@ -55,7 +55,7 @@ public:
 
 /*------------------------------------------------------------------------------------------*/
 
-//Alphanumeric check approach
+// 3. Alphanumeric check approach
 
 class Solution {
 public:
@@ -78,3 +78,49 @@ public:
         return true; // If we reach here, the string is a palindrome, so return true 
     }
 };
+
+/*---------------------------------------*/
+ 
+ // 4. Recursive approach
+
+#include <string>
+#include <cctype>
+
+class Solution {
+private:
+    bool isPalindromeHelper(const std::string &s, int i, int j) {
+        // Base case: an empty string or a single character is a palindrome
+        if (s.empty() || i >= j) {
+            return true;
+        }
+
+        // Skip non-alphanumeric characters
+        while (i < j && !std::isalnum(s[i])) {
+            i++;
+        }
+
+        while (i < j && !std::isalnum(s[j])) {
+            j--;
+        }
+
+        // Convert characters to lowercase for case-insensitive comparison
+        char charI = std::tolower(s[i]);
+        char charJ = std::tolower(s[j]);
+
+        // Compare characters
+        if (charI != charJ) {
+            return false;
+        } else {
+            // Recursive call with updated indices
+            return isPalindromeHelper(s, i + 1, j - 1);
+        }
+    }
+
+public:
+    bool isPalindrome(std::string s) {
+        return isPalindromeHelper(s, 0, s.size() - 1);
+    }
+};
+
+//Time complexity : O(n)
+////Space complexity : O(n)
