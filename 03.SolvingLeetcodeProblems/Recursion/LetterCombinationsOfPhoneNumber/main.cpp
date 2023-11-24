@@ -106,3 +106,56 @@ public:
 //Time complexity : O(4^n)
 //Space complexity : O(n)
 
+/*------------------------------------------------------------------------------------------------------*/
+
+// 3. Queue approach
+
+class Solution {
+public:
+    // Function to generate letter combinations
+    vector<string> letterCombinations(string digits) {
+        // Result vector to store letter combinations
+        vector<string> result;
+
+        // Check if the input string is empty
+        if (digits.empty()) {
+            return result; // Return an empty result vector if digits is empty
+        }
+
+        // Mapping of digits to corresponding letters
+        vector<string> digitToLetters = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+        // Queue to store intermediate combinations
+        queue<string> combinations;
+        combinations.push("");
+
+        // Iterate through each digit in the input string
+        for (char digit : digits) {
+            int num = digit - '0';
+            int size = combinations.size();
+
+            // Process all combinations in the queue for the current digit
+            for (int i = 0; i < size; ++i) {
+                string current = combinations.front();
+                combinations.pop();
+
+                // Append each possible letter for the current digit
+                for (char letter : digitToLetters[num]) {
+                    combinations.push(current + letter);
+                }
+            }
+        }
+
+        // Transfer the generated combinations to the result vector
+        while (!combinations.empty()) {
+            result.push_back(combinations.front());
+            combinations.pop();
+        }
+
+        // Return the final result vector containing all letter combinations
+        return result;
+    }
+};
+
+//Time complexity : O(4^n)
+//Space complexity : O(4^n)
