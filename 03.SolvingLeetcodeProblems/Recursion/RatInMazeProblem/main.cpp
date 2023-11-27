@@ -105,5 +105,71 @@ public:
     }
 };
 
-//Time Complexity: O(4^n)
-//Space Complexity: O(n^2)
+//Time Complexity: O(4^(N^2))
+//Space Complexity: O(N^2)
+
+/*------------------------------------------------------------------------------*/
+
+// 2. Bactracking approach
+
+class Solution {
+private:
+    bool isSafe(int newx, int newy, vector<vector<bool>> &visited, vector<vector<int>> &m, int n) {
+        if ((newx >= 0 && newx < n) && (newy >= 0 && newy < n) && (visited[newx][newy] != 1) && (m[newx][newy] == 1)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    void solve(int x, int y, vector<vector<int>> &m, int n, vector<string> &ans, vector<vector<bool>> &visited, string path) {
+
+        // Base case
+        if (x == n - 1 && y == n - 1) {
+            ans.push_back(path);
+            return;
+        }
+
+        visited[x][y] = true;
+
+        // Down
+        if (isSafe(x + 1, y, visited, m, n)) {
+            solve(x + 1, y, m, n, ans, visited, path + 'D');
+        }
+
+        // Left
+        if (isSafe(x, y - 1, visited, m, n)) {
+            solve(x, y - 1, m, n, ans, visited, path + 'L');
+        }
+
+        // Right
+        if (isSafe(x, y + 1, visited, m, n)) {
+            solve(x, y + 1, m, n, ans, visited, path + 'R');
+        }
+
+        // Up
+        if (isSafe(x - 1, y, visited, m, n)) {
+            solve(x - 1, y, m, n, ans, visited, path + 'U');
+        }
+
+        visited[x][y] = false;  // Resetting the visited status for backtracking
+    }
+
+public:
+    vector<string> findPath(vector<vector<int>> &m, int n) {
+        vector<string> ans;
+
+        vector<vector<bool>> visited(n, vector<bool>(n, false));
+        string path = "";
+
+        if (m[0][0] == 0) {
+            return ans;
+        }
+
+        solve(0, 0, m, n, ans, visited, path);
+        return ans;
+    }
+};
+
+//Time Complexity: O(4^(N^2))
+//Space Complexity: O(N^2)
