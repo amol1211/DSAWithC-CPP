@@ -85,3 +85,25 @@ public:
 
 // Time Complexity: O(log(n)) - Logarithmic time, as each recursion reduces the problem size by half
 // Space Complexity: O(log(n)) - Logarithmic space, due to the recursive call stack
+
+/*-------------------------------------------------*/
+
+class Solution {
+public:
+    double solve(double x, long n) {
+        if (n == 0) return 1;
+
+        if (n < 0) return solve(1/x, -n);
+
+        if (n%2 == 0) return solve(x * x, n/2);
+
+        return x * solve(x * x, (n - 1)/2);
+    }
+    double myPow(double x, int n) {
+
+        return solve(x,(long)n);
+    }
+};
+
+// Time Complexity: O(log(n)) - Logarithmic time, as each recursion reduces the problem size by half
+// Space Complexity: O(log(n))
