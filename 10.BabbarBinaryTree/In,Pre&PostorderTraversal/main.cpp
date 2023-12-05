@@ -61,7 +61,7 @@ void levelOrderTraversal(Node *root) {
     }
 }
 
-void inOrder(Node* root) {
+void inOrder(Node* root) { //LNR
     //Base case
     if (root == nullptr) {
         return;
