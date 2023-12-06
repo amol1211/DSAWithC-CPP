@@ -33,7 +33,7 @@ Node *buildTree(Node *root) {
     return root;
 }
 
-void levelOrderTraversal(Node *root) {
+void levelOrderTraversal(Node *root) { //Also known as BFS
     queue<Node *> q;
     q.push(root);
     q.push(nullptr);
@@ -72,7 +72,7 @@ void inOrder(Node* root) { //LNR
     inOrder(root->right);
 }
 
-void preOrder(Node* root) {
+void preOrder(Node* root) { // Also known as DFS
     //Base case
     if (root == nullptr) {
         return;
