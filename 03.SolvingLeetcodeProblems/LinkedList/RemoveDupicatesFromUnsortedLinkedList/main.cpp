@@ -1,3 +1,5 @@
+//Remove duplicates from an unsorted linked list(GFG)
+
 #include <iostream>
 using namespace std;
 
@@ -50,3 +52,6 @@ class Solution
      // your code goes here
     }
 };
+
+//Time complexity = O(n)
+//Space complexity = O(n)
