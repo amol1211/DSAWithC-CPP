@@ -60,3 +60,6 @@ int intersectPoint(Node* head1, Node* head2) {
 
     return (temp1 == nullptr) ? -1 : temp1->data; // Return the intersection point's data
 }
+
+//Time complexity : O(m + n)
+//Space complexity : O(1) 
