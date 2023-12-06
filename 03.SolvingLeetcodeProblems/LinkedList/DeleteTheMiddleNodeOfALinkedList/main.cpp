@@ -38,6 +38,8 @@ public:
     }
 };
 
+//Time complexity : O(n)
+//Space complexity : O(1) 
 /*--------------------------------------------------------*/
 
 //Approach 2
@@ -65,3 +67,6 @@ public:
         return head;
     }
 };
+
+//Time complexity : O(n)
+//Space complexity : O(1) 
