@@ -105,3 +105,5 @@ Node* flatten(Node* root) {
     return merge(root, flatten(root->next));  // Recursively merge and flatten the lists.
 }
 
+//Time complexity is O(m * log(n))
+//Space complexity is O(m)
