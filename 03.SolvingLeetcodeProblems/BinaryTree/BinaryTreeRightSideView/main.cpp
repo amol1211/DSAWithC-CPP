@@ -34,7 +34,7 @@ public:
 
 /*----------------------------------------------------------------------------------------------------*/
 
-// Level order approach (BFS)
+//2. Level order approach (BFS)
 
 class Solution {
 public:
