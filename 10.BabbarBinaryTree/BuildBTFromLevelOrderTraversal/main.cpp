@@ -19,7 +19,7 @@ public:
 void levelOrderTraversal(Node *root) {
     queue<Node *> q;
     q.push(root);
-    q.push(nullptr);
+    q.push(nullptr); // Separator to move on to next level
 
     while (!q.empty()) {
         Node *temp = q.front();
