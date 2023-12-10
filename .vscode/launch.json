@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/10.BabbarBinaryTree/In,Pre&PostorderTraversal",
-      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/10.BabbarBinaryTree/In,Pre&PostorderTraversal/build/Debug/outDebug",
+      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/10.BabbarBinaryTree/BuildBTFromLevelOrderTraversal",
+      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/10.BabbarBinaryTree/BuildBTFromLevelOrderTraversal/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
