@@ -62,44 +62,44 @@ public:
 
 class Solution {
 private:
-    // Recursive function to traverse the tree and update the count based on prefix sums.
-    void solve(TreeNode* root, int targetSum, long &count, unordered_map<long, int> &prefixSums, long currentSum) {
-        // Base case: if the current node is nullptr, return.
+    void solve(Node* root, int k, long &count, unordered_map<long, int> &prefixSums, long currentSum) {
         if (root == nullptr) return;
 
         // Update the current prefix sum.
-        currentSum += root->val;
+        currentSum += root->data;
+
+        // Check if the current prefix sum is equal to the target sum.
+        count += (currentSum == k);
 
         // Check if there is a prefix sum equal to (currentSum - targetSum) in the hash map.
-        count += prefixSums[currentSum - targetSum];
+        count += prefixSums[currentSum - k];
 
         // Increment the count for the current prefix sum in the hash map.
         prefixSums[currentSum]++;
 
         // Recur for the left and right subtrees.
-        solve(root->left, targetSum, count, prefixSums, currentSum);
-        solve(root->right, targetSum, count, prefixSums, currentSum);
+        solve(root->left, k, count, prefixSums, currentSum);
+        solve(root->right, k, count, prefixSums, currentSum);
 
         // Backtrack: decrement the count for the current prefix sum in the hash map.
         prefixSums[currentSum]--;
     }
 
 public:
-    // Function to find the number of paths with a given sum in a binary tree.
-    int pathSum(TreeNode* root, int targetSum) {
-        // Hash map to store cumulative sums along the path.
+    int sumK(Node *root, int k) {
         unordered_map<long, int> prefixSums;
-        
+
         // Variable to store the final count.
         long count = 0;
 
         // Start the recursion with the root node.
-        solve(root, targetSum, count, prefixSums, 0);
+        solve(root, k, count, prefixSums, 0);
 
         // Return the final count.
         return count;
     }
 };
+
 
 ////Time complexity: O(N) time
 //Space complexity:  O(N) space.
