@@ -1,0 +1,82 @@
+1 . Level Order Traversal:
+
+In level order traversal, also known as breadth-first traversal, nodes are visited 
+level by level, starting from the root.
+It uses a queue data structure to keep track of the nodes to be visited.
+The process continues until all nodes have been visited.
+Example:
+
+
+     1
+    / \
+   2   3
+  / \ / \
+ 4  5 6  7
+
+Level order traversal: 1, 2, 3, 4, 5, 6, 7
+
+/*--------------------------------------------------------------------*/
+2. Preorder Traversal:
+
+In preorder traversal, the root node is visited first, followed by the left subtree 
+and then the right subtree. The process is recursive, and the order is Root-Left-Right.
+Example:
+
+
+     1
+    / \
+   2   3
+  / \ / \
+ 4  5 6  7
+
+Preorder traversal: 1, 2, 4, 5, 3, 6, 7
+
+/*------------------------------------------------------------------------------------------*/
+3. Postorder Traversal:
+
+In postorder traversal, the left subtree is visited first, followed by the right subtree, 
+and finally, the root node. The order is Left-Right-Root.
+Example:
+
+
+     1
+    / \
+   2   3
+  / \ / \
+ 4  5 6  7
+
+Postorder traversal: 4, 5, 2, 6, 7, 3, 1
+
+/*-------------------------------------------------------------------------------------------*/
+4. Inorder Traversal:
+
+In inorder traversal, the left subtree is visited first, followed by the root node, 
+and then the right subtree. The order is Left-Root-Right.
+Example:
+
+
+     1
+    / \
+   2   3
+  / \ / \
+ 4  5 6  7
+
+Inorder traversal: 4, 2, 5, 1, 6, 3, 7
+
+/*------------------------------------------------------------------------------------------*/
+5. Morris Traversal:
+
+Morris traversal is an in-order traversal without using a stack or recursion.
+It utilizes threading to traverse the tree efficiently and without additional space.
+The basic idea is to make the right child of the current node point to its in-order successor.
+Example:
+
+
+     1
+    / \
+   2   3
+  / \ / \
+ 4  5 6  7
+
+Morris traversal: 4, 2, 5, 1, 6, 3, 7
+
