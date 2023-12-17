@@ -1,6 +1,7 @@
 // 1110. Delete Nodes And Return Forest
 
 #include <iostream>
+#include <vector>
 #include <unordered_set>
 using namespace std;
 
