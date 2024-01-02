@@ -78,12 +78,49 @@ public:
     bool searchWord(string word) {
         return searchUtil(root, word);
     }
+
+    bool deleteUtil(TrieNode* root, string word) {
+        //Base case
+        if (word.length() == 0) {
+            if (root->isTerminal) {
+                root->isTerminal = false;
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        int index = word[0] - 'A';
+        TrieNode* child;
+
+        //Present
+        if (root->children[index] != nullptr) {
+            child = root->children[index];
+        } else {
+            //Absent
+            return false;
+        }
+      
+        bool ans = deleteUtil(child, word.substr(1));
+        delete child;
+        return ans;
+        }
+
+    bool deleteWord(string word) {
+        return deleteUtil(root, word);
+    }
 };
 
 int main() {
     Trie* t = new Trie();
-    t->insertWord("abcd");
+    t->insertWord("AMOL");
 
-    cout << "Present or Not " << t->searchWord("abcd") << endl;
+    cout << "Present or Not: " << t->searchWord("AMOL") << endl;
+
+    // Use deleteWord instead of erase
+    t->deleteWord("AMOL");
+
+    cout << "Present or Not: " << t->searchWord("AMOL") << endl;
+
     return 0;
 }
