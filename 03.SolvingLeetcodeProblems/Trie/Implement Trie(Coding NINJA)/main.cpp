@@ -41,7 +41,7 @@ public:
         }
 
         // Assumption: Words are in uppercase. Calculate the index for the current character.
-        int index = word[0] - 'A';
+        int index = word[0] - 'a';
         TrieNode* child;
 
         // If the current character's node is already present, use it. Otherwise, create a new node.
@@ -69,7 +69,7 @@ public:
         }
 
         // Calculate the index for the current character.
-        int index = word[0] - 'A';
+        int index = word[0] - 'a';
         TrieNode* child;
 
         // If the current character's node is present, use it. Otherwise, the word is not in the Trie.
@@ -96,7 +96,7 @@ public:
         }
 
         // Calculate the index for the current character.
-        int index = word[0] - 'A';
+        int index = word[0] - 'a';
         TrieNode* child;
 
         // If the current character's node is present, use it. Otherwise, there is no word with the prefix.

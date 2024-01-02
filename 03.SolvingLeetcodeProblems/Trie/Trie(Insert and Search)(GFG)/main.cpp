@@ -84,7 +84,7 @@ we are processing one character of the string.
 
 Space Complexity:
 
-The space complexity is O(ALPHABET_SIZE * L * N), where ALPHABET_SIZE is 
-the size of the alphabet (26 for lowercase English letters), L is the average 
-length of the strings, and N is the number of strings inserted into the Trie. 
+The space complexity is O(ALPHABET_SIZE * L * N), where ALPHABET_SIZE is the 
+size of the alphabet (26 for lowercase English letters), L is the average length 
+of the strings, and N is the number of strings inserted into the Trie. 
 This complexity arises from the space required to store the Trie nodes.*/
