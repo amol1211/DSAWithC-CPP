@@ -145,7 +145,7 @@ public:
         }
 
         // Get the index corresponding to the current character
-        int index = word[0] - 'a';
+        int index = word[0] - 'a'; 
         TrieNode* child;
 
         // Check if the child node already exists
@@ -175,7 +175,7 @@ public:
             char ch = str[i];
 
             // If only one child, add the character to the result and move to the child
-            if (root->childCount == 1) {
+            if (root->childCount == 1 && !root->isTerminal) {
                 ans.push_back(ch);
                 int index = ch - 'a';
                 root = root->children[index];
