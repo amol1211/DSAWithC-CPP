@@ -1,4 +1,4 @@
-//Coding ninja problem(Phone Directory)
+//Phone directory(GFG)
 
 #include <iostream>
 #include <vector>
@@ -44,8 +44,7 @@ public:
 
         if (root->children[index] != nullptr) {
             child = root->children[index];
-        }
-        else {
+        } else {
             child = new TrieNode(word[0]);
             root->children[index] = child;
         }
@@ -101,24 +100,34 @@ public:
             temp.clear();
             prev = curr;
         }
+
+        // Fill remaining slots with a placeholder
+        int remaining = str.size() - output.size();
+        for (int i = 0; i < remaining; i++) {
+            output.push_back({"0"});
+        }
+
         return output;
     }
 };
 
-// Function to create a phone directory using a Trie
-vector<vector<string>> phoneDirectory(vector<string>& contactList, string& queryStr) {
-    // Create a Trie
-    Trie* t = new Trie();
+// Define a Solution class
+class Solution {
+public:
+    // Function to display contacts
+    vector<vector<string>> displayContacts(int n, string contact[], string s) {
+        Trie* t = new Trie();
 
-    // Insert all contacts into the Trie
-    for (int i = 0; i < contactList.size(); i++) {
-        string str = contactList[i];
-        t->insertWord(str);
+        // Insert all contacts into the Trie
+        for (int i = 0; i < n; i++) {
+            string str = contact[i];
+            t->insertWord(str);
+        }
+
+        // Return the suggestions for the query string
+        return t->getSuggestions(s);
     }
-
-    // Return the suggestions for the query string
-    return t->getSuggestions(queryStr);
-}
+};
 
 /*Time Complexity:
 
