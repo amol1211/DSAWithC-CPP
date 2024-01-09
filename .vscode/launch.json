@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Trie/MaximumXOROfTwoNumbersInAnArray",
-      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Trie/MaximumXOROfTwoNumbersInAnArray/build/Debug/outDebug",
+      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Trie/MaximumXORWithAnElementFromArray",
+      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Trie/MaximumXORWithAnElementFromArray/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
