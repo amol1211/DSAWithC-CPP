@@ -4,6 +4,7 @@
 #include <vector>
 #include <cstring>
 #include <unordered_map>
+using namespace std;
 // This class provides a solution for grouping anagrams in a given vector of strings.
 
 class Solution {
