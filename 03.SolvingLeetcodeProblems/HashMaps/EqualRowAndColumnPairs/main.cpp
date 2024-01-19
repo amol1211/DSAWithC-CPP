@@ -55,7 +55,7 @@ int equalPairs(vector<vector<int>>& grid) {
     int count = 0;
 
     // Create a map to store the frequency of each row
-    map<vector<int>, int> mp;
+    map<vector<int>, int> mp; //key : row , value : count(frequency) of that corresponding row
 
     // Loop through each row in the grid
     for (int r = 0; r < n; r++) {
