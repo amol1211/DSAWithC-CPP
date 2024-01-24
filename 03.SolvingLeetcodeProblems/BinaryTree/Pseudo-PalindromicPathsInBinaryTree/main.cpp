@@ -53,11 +53,6 @@ public:
     // Public variable to store the final result.
     int result = 0;
 
-    /**
-     * Main function to calculate the number of pseudo-palindromic paths in a binary tree.
-     * @param root: The root of the binary tree.
-     * @return The number of pseudo-palindromic paths.
-     */
     int pseudoPalindromicPaths(TreeNode* root) {
         
         // Initialize a vector to store the count of each digit (0 to 9).
