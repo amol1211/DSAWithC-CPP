@@ -1,4 +1,4 @@
-//Implementation of BST using Postorder traversal
+//Implementation of BST using Preorder traversal
 
 #include <iostream>
 #include <queue>
@@ -19,15 +19,15 @@ public:
     }
 };
 
-void postOrderTraversal(Node* root) { //LRN
+void preOrderTraversal(Node* root) { // Also known as DFS //NLR
     //Base case
     if (root == nullptr) {
         return;
     }
-
-    postOrderTraversal(root->left); 
-    postOrderTraversal(root->right);
-    cout << root->data << " ";   
+    
+    cout << root->data << " ";
+    preOrderTraversal(root->left);
+    preOrderTraversal(root->right);
 }
 
 Node* insertIntoBST(Node* root, int data) {
@@ -67,13 +67,13 @@ int main() {
     cout << "Enter data to create BST" << endl;
     takeInput(root);
 
-    cout << "Printing the BST using Postorder traversal" << endl;
-    postOrderTraversal(root);
+    cout << "Printing the BST using Preorder traversal" << endl;
+    preOrderTraversal(root);
 
     return 0;
 }
 
 //10 8 21 7 27 5 4 3 -1
 
-/*Printing the BST using Postorder traversal
-3 4 5 7 8 27 21 10*/
+/*Printing the BST using Preorder traversal
+10 8 7 5 4 3 21 27*/
