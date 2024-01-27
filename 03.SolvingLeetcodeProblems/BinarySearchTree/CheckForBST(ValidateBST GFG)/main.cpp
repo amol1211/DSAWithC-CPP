@@ -4,16 +4,13 @@
 #include <climits> // Required for INT_MIN and INT_MAX
 using namespace std;
 
-class Node {
-    int data;
-    Node* left;
-    Node* right;
-
-  Node(int data)  
-    {this->data = data;
-    this->left = nullptr;
-    this->right = nullptr;
-    }
+struct Node {
+      int val;
+      Node *left;
+      Node *right;
+      Node() : val(0), left(nullptr), right(nullptr) {}
+      Node(int x) : val(x), left(nullptr), right(nullptr) {}
+      Node(int x, Node *left, Node *right) : val(x), left(left), right(right) {}
 };
 
 
