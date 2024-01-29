@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/11.BinarySearchTree/BSTImplementationUsingInOrderTraversal",
-      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/11.BinarySearchTree/BSTImplementationUsingInOrderTraversal/build/Debug/outDebug",
+      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/BinarySearchTree/KthSmallestElementInBST(GFG)",
+      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/BinarySearchTree/KthSmallestElementInBST(GFG)/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
