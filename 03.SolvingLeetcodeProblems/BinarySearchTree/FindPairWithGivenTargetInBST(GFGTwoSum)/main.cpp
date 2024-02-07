@@ -1,4 +1,4 @@
-//Find a pair with given target in BST
+//Find a pair with given target in BST(GFG two sum)
 
 #include <iostream>
 #include <vector>
