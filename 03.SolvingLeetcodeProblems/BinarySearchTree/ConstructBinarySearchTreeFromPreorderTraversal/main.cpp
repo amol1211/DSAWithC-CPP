@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <limits.h>
 using namespace std;
 
   struct TreeNode {
@@ -13,13 +13,6 @@ using namespace std;
       TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
       TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
   }; 
-
-
-  /*
- * This class implements a solution to construct a Binary Search Tree (BST) from a given preorder traversal.
- * Time Complexity: O(n) where n is the number of nodes in the BST.
- * Space Complexity: O(n) for the recursive stack space used by the solve function.
- */
 
 class Solution {
 private:
@@ -59,3 +52,8 @@ public:
         return solve(preorder, mini, maxi, i);
     }
 };
+
+  /*
+ * Time Complexity: O(n) where n is the number of nodes in the BST.
+ * Space Complexity: O(n) for the recursive stack space used by the solve function.
+ */
