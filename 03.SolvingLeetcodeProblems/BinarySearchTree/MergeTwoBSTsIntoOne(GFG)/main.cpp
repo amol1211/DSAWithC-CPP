@@ -103,3 +103,123 @@ public:
        return result; // return the final sorted list
     }
 };
+
+/*Overall, the time and space complexity of the provided code are both O(m + n), 
+where m and n are the number of nodes in the input BSTs.*/
+
+/*--------------------------------------------------------------------------------------------*/
+
+class Solution
+{   
+private:
+    // Function to convert a binary search tree into a sorted doubly linked list
+    // Time Complexity: O(n), where n is the number of nodes in the tree.
+    //                  Each node is visited exactly once.
+    // Space Complexity: O(h), where h is the height of the tree.
+    //                   The space used by the function call stack is proportional to the height of the tree.
+    void convertIntoSortedDLL(Node* root, Node* &head) {
+        // Base case
+        if (root == nullptr) {
+            return;
+        }
+        
+        // Convert right subtree
+        convertIntoSortedDLL(root->right, head);
+        
+        // Insert current node into DLL
+        root->right = head;
+        if (head != nullptr) {
+            head->left = root;
+        }
+        head = root;
+        
+        // Convert left subtree
+        convertIntoSortedDLL(root->left, head);
+    }
+
+    // Function to merge two sorted doubly linked lists
+    // Time Complexity: O(n + m), where n and m are the lengths of the two lists.
+    // Space Complexity: O(1)
+    Node* mergeLinkedLists(Node *head1, Node *head2) {
+        if (head1 == nullptr) {
+            return head2;
+        }
+        if (head2 == nullptr) {
+            return head1;
+        }
+        
+        Node* head = nullptr;
+        Node* tail = nullptr;
+        
+        while (head1 != nullptr && head2 != nullptr) {
+            if (head1->data < head2->data) {
+                if (head == nullptr) {
+                    head = head1;
+                    tail = head1;
+                    head1 = head1->right;
+                }
+                else {
+                    tail->right = head1;
+                    head1->left = tail;
+                    tail = head1;
+                    head1 = head1->right;
+                }
+            }
+            else {
+                if (head == nullptr) {
+                    head = head2;
+                    tail = head2;
+                    head2 = head2->right;
+                }
+                else {
+                    tail->right = head2;
+                    head2->left = tail;
+                    tail = head2;
+                    head2 = head2->right;
+                }
+            }
+        }
+        
+        // Attach remaining nodes
+        if (head1 != nullptr) {
+            tail->right = head1;
+            head1->left = tail;
+        }
+        if (head2 != nullptr) {
+            tail->right = head2;
+            head2->left = tail;
+        }
+        
+        return head;
+    }
+
+public:
+    // Function to return a list of integers denoting the node 
+    // values of both the BST in a sorted order.
+    // Time Complexity: O(n + m), where n and m are the number of nodes in the two trees.
+    // Space Complexity: O(n + m), for storing the sorted doubly linked list.
+    vector<int> merge(Node *root1, Node *root2)
+    {
+        // Step 1: Convert BST into sorted DLL in-place
+        Node* head1 = nullptr;
+        convertIntoSortedDLL(root1, head1);
+        
+        Node* head2 = nullptr;
+        convertIntoSortedDLL(root2, head2);
+       
+        // Step 2: Merge sorted LL
+        Node* head = mergeLinkedLists(head1, head2);
+       
+        // Step 3: Store the values of merged DLL into a vector
+        vector<int> result;
+        while (head != nullptr) {
+            result.push_back(head->data);
+            head = head->right;
+        }
+        
+        return result;
+    }
+};  
+
+/*Time Complexity: O(n)
+Space Complexity: O(1)*/
