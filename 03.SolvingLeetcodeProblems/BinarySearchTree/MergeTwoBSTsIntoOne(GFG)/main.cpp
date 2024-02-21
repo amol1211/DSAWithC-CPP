@@ -14,7 +14,6 @@ struct Node {
         left = right = nullptr;
     }
 };
-
 class Solution
 {   
 private:
