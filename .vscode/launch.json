@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Heap/KthSmallestElement(GFG)",
-      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Heap/KthSmallestElement(GFG)/build/Debug/outDebug",
+      "cwd": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Heap/ConvertBSTToMaxHeap(GFG)",
+      "program": "c:/Users/lenovo/Desktop/DSAWithC-CPP/03.SolvingLeetcodeProblems/Heap/ConvertBSTToMaxHeap(GFG)/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
