@@ -62,6 +62,8 @@ public:
 };
 
 // Time complexity: O((r - l + 1) * log k), where n is the number of elements in the range (r - l + 1).
-//                  Building the priority queue takes O(k log k) time for the first k elements,
-//                  and for the subsequent (r - l + 1 - k) elements, each insertion into the priority queue takes O(log k) time.
+// Building the priority queue takes O(k log k) time for the first k elements,
+// and for the subsequent (r - l + 1 - k) elements, each insertion into the priority queue takes O(log k) time.
 // Space complexity: O(k), as the priority queue holds at most k elements.
+
+/* ----------------------------------------------------------------------------------------------------------------- */
