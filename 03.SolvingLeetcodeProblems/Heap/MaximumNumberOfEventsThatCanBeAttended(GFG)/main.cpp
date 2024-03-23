@@ -84,7 +84,7 @@ public:
     }
 };
 
-/*/*Time Complexity:
+/*Time Complexity:
 
 Constructing the unordered_set and iterating over the events takes O(N) time.
 Sorting the events takes O(N log N) time.
@@ -93,4 +93,4 @@ Overall time complexity: O(N log N)
 Space Complexity:
 
 Additional space is used for the unordered_set and vector of pairs.
-Overall space complexity: O(N)*/*/
+Overall space complexity: O(N)*/
