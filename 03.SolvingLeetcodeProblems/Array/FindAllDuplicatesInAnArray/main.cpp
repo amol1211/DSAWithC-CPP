@@ -175,3 +175,96 @@ public:
 // time complexity- O(n)
 // space complexity- O(n)
  
+
+ /*-------------------------------------------------------*/
+
+ class Solution {
+public:
+    // Function to find duplicates in an array
+    // Time Complexity: O(n), where n is the size of the input array nums.
+    // Space Complexity: O(1) (excluding the output vector)
+    vector<int> findDuplicates(vector<int>& nums) {
+        // Get the size of the input array
+        int n = nums.size();
+        
+        // Initialize a vector to store duplicate elements
+        vector<int> ans;
+
+        // Iterate through the array
+        for (int i = 0; i < n; i++) {
+            // Get the absolute value of the current element
+            int num = abs(nums[i]);
+            
+            // Calculate the index (zero-based) for the current number
+            int index = num - 1;
+
+            // If the number at index is negative, it means we've seen this number before,
+            // so it's a duplicate. Add it to the output vector.
+            if (nums[index] < 0) {
+                ans.push_back(num);
+            }
+            // Otherwise, mark the number at index as seen by negating its value.
+            else {
+                nums[index] *= -1;
+            }
+        }
+
+        // Return the vector containing duplicates
+        return ans;
+    }
+};
+
+/*
+Here's the commented version of the provided C++ code with explanations and the time and space complexity analysis:
+
+cpp
+Copy code
+class Solution {
+public:
+    // Function to find duplicates in an array
+    // Time Complexity: O(n), where n is the size of the input array nums.
+    // Space Complexity: O(1) (excluding the output vector)
+    vector<int> findDuplicates(vector<int>& nums) {
+        // Get the size of the input array
+        int n = nums.size();
+        
+        // Initialize a vector to store duplicate elements
+        vector<int> ans;
+
+        // Iterate through the array
+        for (int i = 0; i < n; i++) {
+            // Get the absolute value of the current element
+            int num = abs(nums[i]);
+            
+            // Calculate the index (zero-based) for the current number
+            int index = num - 1;
+
+            // If the number at index is negative, it means we've seen this number before,
+            // so it's a duplicate. Add it to the output vector.
+            if (nums[index] < 0) {
+                ans.push_back(num);
+            }
+            // Otherwise, mark the number at index as seen by negating its value.
+            else {
+                nums[index] *= -1;
+            }
+        }
+
+        // Return the vector containing duplicates
+        return ans;
+    }
+};
+Explanation:
+
+The function findDuplicates takes a vector of integers nums as input and returns a vector containing duplicates found in the input array.
+It iterates through the input array, and for each element:
+It calculates the absolute value of the element and uses it to find the index in the array.
+If the value at that index is negative, it means we've seen this number before, so it's a duplicate. We add it to the output vector.
+Otherwise, it marks the number at the calculated index as seen by negating its value.
+Finally, it returns the vector containing the duplicates found in the input array.
+Time Complexity:
+
+The time complexity of the algorithm is O(n), where n is the size of the input array nums. This is because we iterate through the array once.
+Space Complexity:
+
+The space complexity is O(1) excluding the space required for the output vector. We only use a constant amount of extra space for variables n, ans, num, and index, regardless of the size of the input array.*/
