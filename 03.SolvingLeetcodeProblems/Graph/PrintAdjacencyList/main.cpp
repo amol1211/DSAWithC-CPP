@@ -56,7 +56,10 @@ public:
 };
 
 /*Time Complexity:
-The time complexity of this function is O(E), where E is the number of edges. The loop goes through each edge in the list and performs a constant-time operation for each edge.
+The time complexity of this function is O(E), where E is the number of edges. 
+The loop goes through each edge in the list and performs a constant-time operation for each edge.
 
 Space Complexity:
-The space complexity is O(V + E). The adjacency list takes up V lists (for each vertex) and the total number of elements in these lists is equal to twice the number of edges (since the graph is undirected and each edge is stored twice).*/
+The space complexity is O(V + E). The adjacency list takes up V lists (for each vertex) and the 
+total number of elements in these lists is equal to twice the number of edges (since the graph is 
+undirected and each edge is stored twice).*/
