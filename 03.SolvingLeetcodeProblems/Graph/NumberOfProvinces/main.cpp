@@ -54,10 +54,10 @@ public:
 };
 
 /*Time Complexity:
-The time complexity of this function is O(n^2). This is because the depth-first search (DFS) function runs in O(n^2) time in the worst-case scenario, as each node (city) is connected to every other node (city) in the adjacency matrix representation.
+O(V + E)
 
 Space Complexity:
-The space complexity is O(n). This is due to the visited vector, which keeps track of the visited nodes, and the recursive stack during the DFS traversal.*/
+The space complexity is O(V). This is due to the visited vector, which keeps track of the visited nodes, and the recursive stack during the DFS traversal.*/
 
 /*----------------------------------------------------------------------*/
 
@@ -126,10 +126,7 @@ public:
 };
 
 /*Time Complexity:
-The time complexity of the findCircleNum function is O(n^2). This is because the 
-breadth-first search (BFS) function runs in O(n^2) time in the worst-case scenario, 
-as each node (city) is connected to every other node (city) in the adjacency matrix representation.
+O(V + E)
 
 Space Complexity:
-The space complexity is O(n) due to the visited vector, which keeps track of the visited nodes, 
-and the queue used in the BFS traversal, which can hold at most n nodes at any given time.*/
+The space complexity is O(V). This is due to the visited vector, which keeps track of the visited nodes, and the recursive stack during the DFS traversal.*/
