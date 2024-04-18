@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//Using BFS(kanh's algorithm)
+//Approach 1 : Using BFS(kanh's algorithm)
 
 class Solution {
 public:
@@ -96,3 +96,75 @@ topologicalSortCheck function:
 Queue and count variables use O(V) space in the worst case.
 Overall Space Complexity:
 The overall space complexity of the code is O(V) */
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+//Approach 2 : Using DFS
+
+class Solution {
+private:
+    // Helper function that performs DFS to check for cycles
+    bool isCycleDFS(unordered_map<int, vector<int>> &adj, int u, vector<bool> &visited, vector<bool> &inRecursion) {
+        // Mark the current node as visited
+        visited[u] = true;
+        // Mark the current node as being in recursion stack
+        inRecursion[u] = true;
+
+        // Iterate through each neighbor of the current node
+        for (int &v : adj[u]) {
+            // If the neighbor has not been visited and there is a cycle in the DFS path
+            if (!visited[v] && isCycleDFS(adj, v, visited, inRecursion))
+                return true;
+            // If the neighbor is already in recursion stack, a cycle is detected
+            else if (inRecursion[v] == true)
+                return true;    
+        }
+
+        // Remove the current node from recursion stack
+        inRecursion[u] = false;
+
+        // Return false if no cycle is detected
+        return false;
+    }    
+public:
+    // Function to check if all courses can be finished
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        
+        // Create an adjacency list to represent the graph
+        unordered_map<int, vector<int>> adj;
+
+        // Vector to track visited nodes
+        vector<bool> visited(numCourses, false);
+
+        // Vector to track nodes in recursion stack
+        vector<bool> inRecursion(numCourses, false);
+
+        // Populate the adjacency list based on the prerequisites
+        for (auto &vec : prerequisites) {
+            int a = vec[0];
+            int b = vec[1];
+
+            // Add a directed edge from `b` to `a` in the graph
+            adj[b].push_back(a);
+        }
+
+        // Iterate through each course
+        for (int i = 0; i < numCourses; i++) {
+            // If the course is not visited and a cycle is found, return false
+            if (!visited[i] && isCycleDFS(adj, i, visited, inRecursion))
+                return false; // Cannot complete all courses if there's a cycle
+        }
+
+        // If no cycles are found, all courses can be completed
+        return true; // Can complete all the courses
+    }
+};
+
+// Time Complexity: O(E + V)
+// - Where E represents the number of edges (prerequisites) and V represents the number of vertices (courses).
+// - The time complexity comes from traversing all the nodes (V) and edges (E) in the graph.
+
+// Space Complexity: O(V + E)
+// - V represents the number of vertices (courses) and E represents the number of edges (prerequisites).
+// - This accounts for the space used by the adjacency list (`adj`), the visited vector (`visited`), and 
+//the recursion stack vector (`inRecursion`).
