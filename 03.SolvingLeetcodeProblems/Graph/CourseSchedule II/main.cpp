@@ -3,6 +3,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Approach 1 : Using BFS
+
 class Solution {
 public:
     // Function to perform topological sort on the given adjacency list, `adj`, with `n` nodes and `indegree` vector
@@ -99,8 +101,105 @@ public:
 - The space complexity is O(V + E):
     - V represents the number of vertices (courses).
     - E represents the number of edges (prerequisites).
-- This complexity accounts for the storage of the adjacency list (`adj`), the in-degree vector (`indegree`), and the result vector (`result`).
+- This complexity accounts for the storage of the adjacency list (`adj`), the in-degree vector (`indegree`), 
+and the result vector (`result`).
 - The adjacency list (`adj`) stores the edges, which requires O(E) space.
 - The in-degree vector (`indegree`) and result vector (`result`) each require O(V) space.
 
 */
+
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+
+//Approach 2 : Using DFS
+
+class Solution {
+public:
+    // Boolean flag to track if a cycle is detected
+    bool hasCycle;
+
+    // Helper function that performs DFS to detect cycles and find topological sort
+    void DFS(unordered_map<int, vector<int>> &adj, int u, vector<bool> &visited, stack<int> &st, vector<bool> &inRecursion) {
+        // Mark the current node as visited
+        visited[u] = true;
+        // Mark the current node as being in recursion
+        inRecursion[u] = true;
+
+        // Iterate through each neighbor of the current node
+        for (int &v : adj[u]) {
+            // If the neighbor is in recursion, a cycle is detected
+            if (inRecursion[v] == true) {
+                hasCycle = true;
+                return;
+            }
+
+            // If the neighbor is not visited, perform DFS on it
+            if (!visited[v]) {
+                DFS(adj, v, visited, st, inRecursion);
+            }
+        }
+
+        // After exploring all neighbors, push the current node onto the stack
+        st.push(u);
+        // Remove the current node from recursion
+        inRecursion[u] = false;
+    }
+
+    // Function to find the topological sort order of courses
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        // Create an adjacency list to represent the graph
+        unordered_map<int, vector<int>> adj;
+
+        // Initialize vectors to track recursion and visited nodes
+        vector<bool> inRecursion(numCourses, false);
+        vector<bool> visited(numCourses, false);
+
+        // Initialize cycle detection flag
+        hasCycle = false;
+
+        // Populate the adjacency list based on the prerequisites
+        for (auto &vec : prerequisites) {
+            int a = vec[0];
+            int b = vec[1];
+
+            // Add a directed edge from `b` to `a` in the graph
+            adj[b].push_back(a);
+        }
+
+        // Create a stack to hold nodes in topological order
+        stack<int> st;
+
+        // Iterate through each course
+        for (int i = 0; i < numCourses; i++) {
+            // If the course is not visited, perform DFS on it
+            if (!visited[i])
+                DFS(adj, i, visited, st, inRecursion);
+        }
+
+        // If a cycle is detected, return an empty list
+        if (hasCycle == true)
+            return {};
+
+        // Create a vector to hold the result in topological order
+        vector<int> result;
+
+        // Pop elements from the stack to get the topological sort order
+        while (!st.empty()) {
+            result.push_back(st.top());
+            st.pop();
+        }
+
+        // Return the result list
+        return result;   
+    }
+};
+
+// Time Complexity: O(E + V)
+// - Where E represents the number of edges (prerequisites) and V represents the number of vertices (courses).
+// - The time complexity comes from traversing all nodes (V) and edges (E) in the graph, including DFS calls for each unvisited node.
+
+// Space Complexity: O(V + E)
+// - V represents the number of vertices (courses) and E represents the number of edges (prerequisites).
+// - This accounts for the space used by the adjacency list (`adj`), the visited vector (`visited`), and the recursion stack vector (`inRecursion`).
+// - The stack (`st`) used for topological sorting will also use additional space, which depends on the number of nodes (V).
+
+
