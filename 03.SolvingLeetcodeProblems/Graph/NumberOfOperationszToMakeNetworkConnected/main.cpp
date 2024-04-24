@@ -76,12 +76,7 @@ public:
 
 /*Time complexity:
 
-The time complexity of the find function with path compression is approximately O(log n), 
-where n is the number of nodes.
-The time complexity of the Union function with union by rank is also approximately O(log n).
-The overall time complexity of the makeConnected function depends on the number of connections processed, 
- is O(n) in the worst case due to the loop through connections.
- 
-Space complexity:
+Time complexity: O(V + E)
+Space complexity: O(V)
 
-The space complexity is O(n), where n is the number of nodes, due to the parent and rank vectors.*/
+*/
