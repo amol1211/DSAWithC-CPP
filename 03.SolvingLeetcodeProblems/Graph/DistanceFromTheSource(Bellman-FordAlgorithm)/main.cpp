@@ -3,6 +3,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Here, we used 1e8 instead of INT_MAX as mentioned in the problem
+
 class Solution {
 public:
     // Function to implement Bellman Ford
