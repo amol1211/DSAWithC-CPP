@@ -1,4 +1,4 @@
-//Minimum Spanning Tree (GFG)
+//Minimum Spanning Tree (GFG) using Prim's algorithm
 
 #include <bits/stdc++.h>
 using namespace std;
