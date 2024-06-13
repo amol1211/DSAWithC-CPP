@@ -6,6 +6,7 @@ using namespace std;
 //Using BFS from from 0s 
 //NOTE : (BFS from each 1 to their nearest 0 solution is O(m * n) * O(m * n) which is expensive 
 //solution that's why we use BFS From 0s to 1.
+/* Pitch {0, 1, 1}, {1, 1, 1}, {1, 1, 1} matrix to interviewer */
 
 class Solution {
 public:
